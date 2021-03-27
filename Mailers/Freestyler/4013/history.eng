@@ -1,0 +1,258 @@
+--------------------------------------------------------------------------
+                Development history of Freestyler (Human Resource)
+--------------------------------------------------------------------------
+
+Conventional symbols:
+
+[!] Significant change or extension.
+[*] Minor change or extension.
+[+] Addition.
+[-] Repair of a bug.
+
+--------------------------------------------------------------------------
+
+ 4.013 (25-Feb-2001)
+ ~~~~~~~~~~~~~~~~~~~
+
+[*] Changed the colority of some graphic resources. This allowed
+    to reduce [fstyler.exe] by 37kB.
+[+] Help->Credits item added to the main menu.
+[!] Support of Ukrainian. There will be three-language support
+    in Freestyler since this version: English, Russian, and Ukrainian.
+    Also three-language documentation will be issued.
+[*] Before less than 16kB-sized file parts were to be removed with abort 
+    of a session. Since now receive resumption is possible from any offset.
+[!] Pause on poll (polls). "Hot" keys: Alt+P/Shift+P.
+[*] "Hot" keys and behavior of items changed in 'Poll' submenu. 
+    E.g. 'Reset' item is non-active when there is nothing to reset.
+[!] Since this version Freestyler supports Argus's and older versions of
+    Freestyler's configuration files.
+         Import of Argus's (of any version) or Freestyler's (up to 4.005) 
+    configuration file sets in flags handler (Config->Externals->Flags)
+    standard flags, and, also, macros commands, designated to these.
+         To import Argus configuration file:
+    - copy [config.bin] to Freestyler home directory,
+    - remove [fstyler.bin] from there, if exists,
+    - start Freestyler.
+    If Freestyler misses [fstyler.bin] in its home directory, it will 
+    search for [config.bin] to import data. When [fstyler.bin] is
+    automatically created, Freestyler will not need [config.bin].
+    ATTENTION! Support of Freestyler configuration files is an experiment,
+    so, it can work improperly. If you find a bug, mail me, please, 
+    information of your Operating System and your version of Freestyler, 
+    and do not forget to send me Freestyler configuration file.
+    ATTENTION! When upgraded from older versions of Freestyler, do not 
+    forget to check settings accuracy in Config->Polls->Options.
+    Not needed when upgraded from Argus.
+    ATTENTION! Do not apply Freestyler configuration file to Argus.
+    (Alexandr Sutulov 2:6083/3.1)
+[!] Changed appearance of receive/transfer bars. Added:
+    - indicator of file receive/transfer percent;
+    - indicator of file receive/transfer elapsed time;
+    - indicator of file receive/transfer estimated time;
+    - block size indicator;
+    - indicators of average (receive and transfer) CPS.
+    The same indicators (except for the block size indicator) serve 
+    to indicate common receive/transfer process.
+
+--------------------------------------------------------------------------
+
+ 4.012 (30-Nov-2000)
+ ~~~~~~~~~~~~~~~~~~~
+[-] One could not shut down Windows when running Freestyler.
+    (Artem Romanko 2:5020/1757.9)
+[-] Considerably improved flags handling system. A bug fixed, which could
+    lead to "hang-up" when long running Freestyler.
+    (Sergey Homa 2:465/239.11)
+[-] CPS indicator appears in 8 seconds after file transfer/receive
+    begins, and since at least 8 kilobytes transferred/received. 
+    Now no problems with those atoms, which use CPS value.
+[*] Application icon and 'About' window changed.
+
+--------------------------------------------------------------------------
+
+ 4.011 (30-Aug-2000)
+ ~~~~~~~~~~~~~~~~~~~
+[-] Sometimes after configuration changes in Polls and Externals 
+    Freestyler did not save some of these.
+    (Alexey Egorichev 2:5026/38)
+[*] A flag name without back slashes means that there is no full path, and 
+    the flag is to be created ('>' command) in the Flags Folder.
+    (Alexey Egorichev 2:5026/38)
+[+] 'Timeout of Connection' atom. 120 seconds on default (it was 180
+    before).
+[*] 'Information' icon changed to the Freestyler's icon in 'About' window.
+    (Denis Voituk 2:5012/28.25)
+
+--------------------------------------------------------------------------
+
+ 4.010 (29-Aug-2000)
+ ~~~~~~~~~~~~~~~~~~~
+[*] Macroses accuracy check.
+[*] If false data is input into one of grid rows, then before an error 
+    message appears, a tab with the wrong grid data would be chosen.
+[-] A bug fixed, which caused icon remaining in tray after Freestyler is 
+    closed.
+
+--------------------------------------------------------------------------
+
+ 4.009 (18-Aug-2000)
+ ~~~~~~~~~~~~~~~~~~~
+[-] There were displayed "hieroglyphs" instead of russian characters under 
+    Windows NT owing to improper coding substitution.
+    (Alexandr Sutulov 2:6083/3.1)
+[+] An optional ability to switch on/off 'Floating Interval Between Polls'.
+    It is configured in Config->Polls->Options.
+[-] Altered the ordering algorithm in drop-down Addresses List. It works
+    much quicker now.
+[-] %OpenIP% and %CloseIP% macroses did not work correctly.
+    (Dmitry Shipovalov 2:452/38)
+[-] [active.ip] flag was being created in the Home Directory, not in the
+    Flags Folder.
+[*] The application's icon and hint for tray icon changed.
+
+--------------------------------------------------------------------------
+
+ 4.008 (05-Aug-2000)
+ ~~~~~~~~~~~~~~~~~~~
+[*] The compiled nodelist can be moved to any folder (not only to
+    Freestyler's Home Directory). It is selected in Config->Paths.
+[-] Now Freestyler sees Argus's configuration file, except for paths
+    configuration.
+[*] Renamed the configuration file [config.cfg] => [fstyler.bin].
+[-] A minor bug fixed with usage of cursor keys in Outbound window. Now
+    'Left'/'Right' keys operate as in standard ListView.
+[-] Verification of existence and deletion of [online.Line] flags is 
+    performed on start of mailer.
+
+--------------------------------------------------------------------------
+
+ 4.007 (24-Jul-2000)
+ ~~~~~~~~~~~~~~~~~~~
+[*] Now you can refer from Freestyler to its Internet home page 
+    [http://hres.narod.ru].
+[-] Redefinition of Flags Folder took effect only after restart.
+[*] Freestyler now would not process [exit.now], [nodelist.ok], 
+    [password.ok], [dupovr.ok], and [ipovr.ok] flags created in its 
+    Home Directory.
+[+] Macroses for 'Execute' field (Config->Externals):
+    %Exit% - exit the program;
+    %CompileNodelist% - compile the nodelist;
+    %OpenIP% - open TCP/IP Daemon;
+    %CloseIP% - close TCP/IP Daemon;
+    %ImportPasswordList% - import the list of passwords (similar to 
+    Argus's [password.ok] flag);
+    %ImportDialupNodesList% - import the list of Dial-up nodes overrides 
+    (similar to Argus's [dupovr.ok] flag);
+    %ImportIPNodesList% - import the list of TCP/IP nodes overrides
+    (similar to Argus's [ipovr.ok] flag).
+    The names of macroses are case-insensitive.
+[+] Changed 'About' window.
+[*] [open.Line] and [close.Line] flags now are to be created in the Flags 
+    Folder. There also the mailer will create [active.Line] flags.
+[*] [online.Line] flags (where Line - the line's name) are being created 
+    in session time.
+
+--------------------------------------------------------------------------
+
+ 4.006 (24-Jul-2000)
+ ~~~~~~~~~~~~~~~~~~~
+[+] Added %NETMAIL% and %TIC% postprocessors' macroses.
+[*] "Hot" F5 key for [AdvGrids]. Row addition.
+    (Valera Loktionov 2:5097/36.27)
+[+] Size of [fstyler.exe] file was decreased for 20 Kb by substitute
+    of [seldir.pas] module for the single SHBrowseForFolder Win32API
+    function.
+[+] Flags are now placed in the separate folder. Define it in 
+    Config->Paths.
+    (Alexandr Sutulov 2:6083/3.1)
+[!] Flags processing module has been entirely rebuilt. Now processing 
+    is performed immediately on creation/removal of a flag (or with a 
+    short delay), but not more often than once a second.
+    (Alexandr Sutulov 2:6083/3.1)
+[+] Format of flag names has been altered:
+    flagname.flg - if the flag exists (created) then execute a command.
+    ?flagname.flg - if the flag does not exist (deleted) then execute 
+    a command.
+    *flagname.flg - if the flag exists (created) then delete it and 
+    execute a command.
+    ?*flagname.flg - if the flag does not exist (deleted) then create 
+    it and execute a command.
+    (Oleg Redut 2:5000/111)
+[*] The license agreement is put away.
+
+--------------------------------------------------------------------------
+
+ 4.005 (15-Jul-2000)
+ ~~~~~~~~~~~~~~~~~~~
+[-] The color of the Lamps Bar has been corrected again.
+[*] The location of the Settings Folder in the OS registry changed.
+    Settings are now located in HKLM\Software\Human Resource\Freestyler.
+[*] The main configuration file is renamed [config.bin] => [config.cfg]
+    with a view to further modifications of config.
+[!] [extcfg.pas] module has been entirely rebuilt.
+[!] External flags processing. See them configured in Config->Externals->
+    Flags. Flag names must be written in the left column (without paths, 
+    as those flags in Freestyler's Home Directory are handled only). 
+    If question-mark is put before a flag name then an event occurs on the 
+    absence of the flag. The syntax of the right-column lines is the same 
+    as in Config->Externals->Cron. A flag is deleted (or created) before 
+    command start. There accepted one-minute flags scanning interval. 
+    The log-file of external flags processing [flags.log] is located 
+    in the Freestyler's Log Directory.
+    (Oleg Redut 2:5000/111)
+[-] A spelling error corrected ("Nodelist is compling").
+    (Vetal Leontev 2:5030/1114)
+[-] A spelling error corrected ("Dialling").
+    (Alexander Gabalov 2:6053/4.2)
+[*] Flag name accuracy check.
+[-] Address Input Window overpatched.
+    (Gleb Shirenkov 2:5030/518.10)
+[+] Folding/unfolding node's Attachment List in 'Outbound' tab using 
+    'Left'/'Right' keyboard keys.
+
+--------------------------------------------------------------------------
+
+ 4.004 (07-Jul-2000)
+ ~~~~~~~~~~~~~~~~~~~
+[-] The color of the Lamps Bar has been corrected.
+[*] Changed 'Busy', 'No Connect' polls values, and the others.
+[!] [pollcfg.pas] module has been entirely rebuilt.
+[+] Any of Crash/Direct/Normal/Hold flags has an optional ability to
+    initiate a poll. It is configured in Config->Polls->Options.
+    
+--------------------------------------------------------------------------
+
+ 4.003 (18-Jun-2000)
+ ~~~~~~~~~~~~~~~~~~~
+[-] There was a bug with ordering in drop-down Address List. Fixed.
+
+--------------------------------------------------------------------------
+
+ 4.002 (13-Jun-2000)
+ ~~~~~~~~~~~~~~~~~~~
+[+] 'Freeware' word added to EMSI string (in the product name).
+    This is how EMSI string looks now: 'Freestyler/4.002/Freeware'.
+[+] Now the modem lamps (in the Line tab) are much more good-looking
+    (True Color).
+
+--------------------------------------------------------------------------
+
+ 4.001 (12-Jun-2000)
+ ~~~~~~~~~~~~~~~~~~~
+[*] Address Input Window (for poll or file request creation) changed.
+[+] Ordering in drop-down Addresses List.
+
+--------------------------------------------------------------------------
+
+ 4.000 (11-Jun-2000)
+ ~~~~~~~~~~~~~~~~~~~
+[!] Freestyler project created based on Argus, RIT. It's a pity 
+    that RIT no more develop such a good mailer!
+[*] Smooth ProgressBar in the main mailer window.
+[*] CPS indicator appears immediately after file transfer beginning, 
+    instead of in 10 seconds, or after 4 kilobytes transferred.
+[*] No guess why RIT lads subtracted 7% from ProgressBar indications
+    (when transferring a file). Cancelled.
+
+--------------------------------------------------------------------------
